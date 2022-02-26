@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <header class="header">
+                <a href="{{ url_for('index') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="back-button ionicon" viewBox="0 0 512 512">
+                        <title>Arrow Back</title>
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="48" d="M244 400L100 256l144-144M120 256h292" />
+                    </svg>
+                </a>
+                <h1 class="title">{{ title }}</h1>
+            </header>
+
+            <div class="info">
+                <p>Valor sorteado:</p>
+                <span>{{ number }}</span>
+            </div>
+            <div class="info">
+                <p>Valor inserido:</p>
+                <span>{{ guess }}</span>
+            </div>
+
+            <div class="result">
+                {% if match %}
+                <svg xmlns="http://www.w3.org/2000/svg" class="result-icon success-icon ionicon" viewBox="0 0 512 512">
+                    <title>Checkmark Circle</title>
+                    <path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none"
+                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="32" d="M352 176L217.6 336 160 272" />
+                </svg>
+                <p>Parabéns, você acertou!</p>
+                {% else %}
+                <svg xmlns="http://www.w3.org/2000/svg" class="result-icon error-icon ionicon" viewBox="0 0 512 512">
+                    <title>Close Circle</title>
+                    <path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none"
+                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="32" d="M320 320L192 192M192 320l128-128" />
+                </svg>
+                <p>Que pena, você errou :(</p>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
